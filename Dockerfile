@@ -19,7 +19,7 @@ RUN echo "source /opt/ros/noetic/setup.zsh" >> ~/.zshrc
 RUN echo "source /opt/ros/noetic/setup.bashrc" >> ~/.bashrc
 
 RUN mkdir -p /workspace/dynablox_ws
-RUN git clone --recurse-submodules https://github.com/ethz-asl/dynablox.git /workspace/dynablox_ws/src/dynablox
+RUN git clone -b main --single-branch https://github.com/Kin-Zhang/dynablox.git /workspace/dynablox_ws/src/dynablox
 RUN apt-get install -y python3-vcstool python3-catkin-tools ros-noetic-cmake-modules protobuf-compiler autoconf rsync libtool
 # dynablox dependencies
 RUN cd /workspace/dynablox_ws/src && vcs import . < ./dynablox/https.rosinstall --recursive
